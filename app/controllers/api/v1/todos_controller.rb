@@ -1,5 +1,5 @@
 class Api::V1::TodosController < ApplicationController
-  before_action :set_todo, only: [:show]
+  before_action :set_todo, only: [:show, :update]
 
   def index
     todos = Todo.all
@@ -19,6 +19,14 @@ class Api::V1::TodosController < ApplicationController
 
 
     if @todo.save
+      render json: @todo
+    else
+      render json: @todo.errors
+    end
+  end
+
+  def update
+    if @todo.update(todo_params)
       render json: @todo
     else
       render json: @todo.errors
