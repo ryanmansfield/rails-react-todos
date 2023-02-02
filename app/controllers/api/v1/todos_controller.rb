@@ -1,5 +1,5 @@
 class Api::V1::TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :update]
+  before_action :set_todo, only: [:show, :update, :destroy]
 
   def index
     todos = Todo.all
@@ -31,6 +31,12 @@ class Api::V1::TodosController < ApplicationController
     else
       render json: @todo.errors
     end
+  end
+
+  def destroy
+    @todo.destroy
+
+    render json: { notice: 'Todo was successfully removed.' }
   end
 
   private
