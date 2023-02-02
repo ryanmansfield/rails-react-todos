@@ -14,10 +14,25 @@ class Api::V1::TodosController < ApplicationController
     end
   end
 
+  def create
+    @todo = Todo.new(todo_params)
+
+
+    if @todo.save
+      render json: @todo
+    else
+      render json: @todo.errors
+    end
+  end
+
   private
 
   def set_todo
     @todo = Todo.find(params[:id])
+  end
+
+  def todo_params
+    params.permit(:title, :description, :completed, :due_date)
   end
 
 end
