@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#home"
-  get '*path' => 'pages#home'
-
+  
   Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
@@ -9,5 +7,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
+  root "pages#home"
+  get '*path' => 'pages#home'
 end
