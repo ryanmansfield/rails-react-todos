@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTodos } from "./apiActions"
+import { fetchTodos } from "../apiActions"
 
 
 function Todos() {

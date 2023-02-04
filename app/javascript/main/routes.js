@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Todos from "./todos/Todos";
-import TodoShow from "./todos/TodoShow";
+import Todos from "./todos/views/Todos";
+import TodoShow from "./todos/views/TodoShow";
 
 export default (
   <Router>
