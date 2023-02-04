@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTodos } from "../apiActions"
 
-
 function Todos() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
@@ -22,5 +21,3 @@ function Todos() {
 }
 
 export default Todos;
-
-
