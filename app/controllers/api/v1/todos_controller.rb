@@ -26,7 +26,7 @@ class Api::V1::TodosController < ApplicationController
   end
 
   def update
-    if @todo.update(todo_params)
+    if @todo.update(completed: params[:completed])
       render json: @todo
     else
       render json: @todo.errors

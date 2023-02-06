@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTodos } from "../apiActions"
+import TodoCard from "../components/TodoCard";
 
 function Todos() {
   const [todos, setTodos] = useState([]);
@@ -12,10 +13,15 @@ function Todos() {
   }, []);
   return(
     <div>
-      <h1>Todos</h1>
-      {todos.map(todo =>
-        <p key={todo.id}>{todo.title}</p>
-      )}
+      <h1>My Todos</h1>
+      <div className="todos-container">
+        {todos.map(todo =>
+        <div className="todo-card-container" key={todo.id}>
+          <TodoCard todo={todo}/>
+        </div>
+        )}
+
+      </div>
     </div>
   )
 }

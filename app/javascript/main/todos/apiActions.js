@@ -5,6 +5,11 @@ export const fetchTodos = async() => {
   return axios.get(baseURL).then(response => response.data)
 };
 
+export const updateTodoStatus = async(id, status) => {
+  const baseURL = `/api/v1/todos/${id}`;
+  return axios.patch(baseURL, {id: id, completed: status}).then(response => response.data)
+};
+
 export const fetchTodo = async(id) => {
   const baseURL = `/api/v1/todos/${id}`;
   return axios.get(baseURL).then(response => response.data)
