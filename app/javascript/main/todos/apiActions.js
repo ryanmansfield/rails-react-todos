@@ -9,3 +9,15 @@ export const fetchTodo = async(id) => {
   const baseURL = `/api/v1/todos/${id}`;
   return axios.get(baseURL).then(response => response.data)
 };
+
+export const createTodo = (todo) => {
+  const baseURL = `/api/v1/todos`;
+  axios.post(baseURL, todo)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+};
+
