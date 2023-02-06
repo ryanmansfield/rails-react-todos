@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchTodo } from "../apiActions"
+import { fetchTodo, deleteTodo } from "../apiActions"
+import { Link } from 'react-router-dom'
 
 function TodoShow() {
   const { id }= useParams();
@@ -8,7 +9,7 @@ function TodoShow() {
   useEffect(() => {
     fetchTodo(id)
     .then(data => {
-        setTodo(data)
+      setTodo(data)
     })
     .catch(err => console.log(err))
   }, []);
@@ -25,6 +26,18 @@ function TodoShow() {
       </div>
       <div>
         <span>Due: {todo.due_date}</span>
+      </div>
+      <div>
+        <button
+            type="button"
+            className="button-warn"
+            onClick={() => deleteTodo(todo.id)}
+          >
+            Delete
+        </button>
+      </div>
+      <div>
+        <Link to={`/todos`}>All Todos</Link>
       </div>
     </div>
   )

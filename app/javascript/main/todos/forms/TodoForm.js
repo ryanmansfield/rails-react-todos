@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { createTodo } from "../apiActions"
 import DatePickerField from "../components/DatePickerField";
+import { Link } from 'react-router-dom'
 
 function TodoForm() {
   const formik = useFormik({
@@ -54,6 +55,9 @@ function TodoForm() {
         
         />    
        <button type="submit">Submit</button>
+       <div>
+        <Link to={`/todos`}>Cancel</Link>
+      </div>
      </form>
     </div>
   )

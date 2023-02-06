@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTodos } from "../apiActions"
 import TodoCard from "../components/TodoCard";
+import { Link } from 'react-router-dom'
 
 function Todos() {
   const [todos, setTodos] = useState([]);
@@ -20,7 +21,9 @@ function Todos() {
           <TodoCard todo={todo}/>
         </div>
         )}
-
+      </div>
+      <div>
+        <Link to={`/todos/new`}>Add Todo</Link>
       </div>
     </div>
   )

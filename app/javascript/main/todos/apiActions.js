@@ -20,9 +20,21 @@ export const createTodo = (todo) => {
   axios.post(baseURL, todo)
   .then(function (response) {
     console.log(response);
+    window.location.href = `/todos/${response.data.id}`;
   })
   .catch(function (error) {
     console.log(error);
   });
 };
 
+export const deleteTodo = async(id) => {
+  const baseURL = `/api/v1/todos/${id}`;
+  return axios.delete(baseURL)
+  .then(function (response) {
+    console.log(response);
+    window.location.href = `/todos`;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+};
